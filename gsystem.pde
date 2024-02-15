@@ -1,18 +1,15 @@
 
 
-int len = 50;
-
-float angle = PI / 2;
-
-
 Koch s = new Koch();
 Snowflake snow = new Snowflake();
+Die die = new Die();
 
 void setup() {
 
   size(800, 800);
 
   stroke(255);
+
 }
 
 
@@ -20,10 +17,7 @@ void draw(){
 
   background(0);
 
-  // s.draw();
-
-  snow.draw();
-
+  die.draw();
 }
 
 
@@ -31,12 +25,14 @@ void draw(){
 void keyPressed(){
 
     if(keyCode == UP) {
-      snow.update();
-      // s.update();
+
+      die.update();
+
     }
 
     if(keyCode == DOWN) {
-      snow.update();
-      // s.back();
+
+      die.back();
+
     }
 }

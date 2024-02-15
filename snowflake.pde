@@ -13,11 +13,11 @@ class Snowflake extends System {
 
     public void draw(){
 
-        translate(width/2,height);
+        translate(width / 2 - 190,height - 80);
         for(int i=0; i<value.length(); i++) {
 
             char c = value.charAt(i);
-            float len = height / pow(3,n);
+            float len = (height - 160) / pow(3,n);
             if(c == 'F') {
             line(0,0, 0,-len);
             translate(0,-len);
