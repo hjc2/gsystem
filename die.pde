@@ -9,19 +9,22 @@
 class Die extends System {
 
     Die(){
-        super("D");
+        super("U");
 
-        this.add("D -> DSR");
+        this.add("U -> [U r U d U l U k]");
+        this.add("r -> rr");
+        this.add("d -> dd");
+        this.add("l -> ll");
+        this.add("k -> kk");
     }
 
     public void draw(){
 
         noFill();
-        rectMode(CENTER);
+        rectMode(CORNER);
 
-        translate(width / 2, height / 2);
+        // translate(width / 2, height / 2);
 
-        pushMatrix();
 
         for(int i=0; i<value.length(); i++) {
 
@@ -29,17 +32,15 @@ class Die extends System {
             
             float len = (height) / pow(2,n);
 
-            if(c == 'S') {
-                scale(2);
+            if(c == 'U'){
+                rect(0,0,len,len);
             }
-
-            if(c == 'R'){
-                rect(0, 0, len, len);
-            }
-        
+            if(c == 'r'){translate(len,0);}
+            if(c == 'd'){translate(0,len);}
+            if(c == 'l'){translate(-len,0);}
+            if(c == 'k'){translate(0,-len);}
         }
 
-        popMatrix();
 
     }
 
