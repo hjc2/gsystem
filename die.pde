@@ -18,8 +18,7 @@ class Die extends System {
         this.add("U -> [U r U d U l U]");
         this.add("U -> [U r U d U l U]");
 
-        this.add("U -> 2");
-        this.add("2 -> 3");
+        this.add("U -> KUS");
 
         this.add("r -> rr");
         this.add("d -> dd");
@@ -35,9 +34,10 @@ class Die extends System {
         rectMode(CORNER);
         // translate(width / 2, height / 2);
 
+        float lenMod = 1;
 
         for(int i=0; i<value.length(); i++) {
-
+            
             char c = value.charAt(i);
             
             float len = (height) / pow(2,n);
@@ -53,11 +53,13 @@ class Die extends System {
             if(c == '['){pushMatrix();}
             if(c == ']'){popMatrix();}
 
-            if(Character.isDigit(value.charAt(i))){
-                fill(255,0,0);
-                rect(0,0,pow(2,int(value.charAt(i))) * len, pow(2,int(value.charAt(i))) * len);
-                        noFill();
+            if(c == 'K'){
+                lenMod = lenMod * 2;
+                rect(0,0,len * lenMod,len * lenMod);
 
+            }
+            if(c == 'S'){
+                lenMod = lenMod / 2;
             }
         }
 
