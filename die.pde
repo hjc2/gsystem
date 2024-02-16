@@ -39,10 +39,7 @@ class Die extends System {
                 translate(-len,0);
             }
 
-            
-            // if(c == '-') { rotate(-PI/3); }
-            // if(c == '+') { rotate(PI/3); }
-            // if(c == '*') {rotate(2 * PI / 3); }
+        
         }
 
     }
