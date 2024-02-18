@@ -8,6 +8,8 @@ Die die = new Die();
 
 System current = die;
 
+int k = 1;
+
 void setup() {
 
   size(800, 800);
@@ -32,6 +34,10 @@ void keyPressed(){
 
     current.update();
     println(current.value);
+
+    // String filename = "image" + k + ".jpg";
+    // save(filename);
+    // k++; // Increment the counter
   }
 
   if(keyCode == DOWN) {

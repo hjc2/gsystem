@@ -31,7 +31,6 @@ class Die extends System {
         this.add("y -> yy");
         this.add("z -> zz");
         this.add("q -> qq");
-        // this.add("k -> kk");
     }
 
     public void draw(){
@@ -46,7 +45,16 @@ class Die extends System {
             float len = (height) / pow(2,n);
 
             if(c == 'U'){
-                rect(0,0,len,len);
+                // rect(0,0,len,len);
+                line(0,0,len,0);
+                translate(len,0);
+                line(0,0,0,len);
+                translate(0,len);
+                line(0,0,-len,0);
+                translate(-len,0);
+                line(0,0,0,-len);
+                translate(0,-len);
+                // these two do the same thing
             }
 
             if(c == 'r'){translate(len,0);}
@@ -73,11 +81,6 @@ class Die extends System {
                 translate(0,-len);
             }
         }
-
-
     }
 
-
 }
-
-// [[[UrUdUlU]rr[UrUdUlU]dd[UrUdUlU]ll[UrUdUlU]]rrrr[[UrUdUlU]rr[UrUdUlU]dd[UrUdUlU]ll[xyzq]]dddd[[xyzq]rr[UrUdUlU]dd[UrUdUlU]ll[UrUdUlU]]llll[xxyyzzqq]]
