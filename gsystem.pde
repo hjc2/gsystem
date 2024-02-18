@@ -6,7 +6,9 @@ Snowflake snowflake = new Snowflake();
 Square square = new Square();
 Die die = new Die();
 
-System current = die;
+Cpu cpu = new Cpu(); 
+
+System current = cpu;
 
 int k = 1;
 

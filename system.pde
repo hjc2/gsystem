@@ -23,13 +23,13 @@ abstract class System {
     }
 
     // Modified add method to support multiple productions
-    void add(char k, String str) {
+    protected void add(char k, String str) {
         ArrayList<String> productions = rules.getOrDefault(k, new ArrayList<String>());
         productions.add(str);
         rules.put(k, productions);
     }
 
-    void add(String str) {
+    protected void add(String str) {
         String trimStr = str.replace(" ", "");
         String[] parts = trimStr.split("->");
         char tmp = parts[0].charAt(0);
