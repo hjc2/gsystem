@@ -8,53 +8,208 @@ class Explosion extends System {
 
     int depth = 1;
     Explosion(){
-        super("E");
+        super("A");
 
-        this.add("E -> E[+[ME]+[ME]+[ME]]");
-        this.add("E -> E[++[ME]+++[ME]++++[ME]]");
-        this.add("E -> E[+++++[ME]++[ME]+[ME]]");
-
+        prep();        
     }
+
+
 
     public void draw(){
 
         translate(width/2,height / 2);
 
         noStroke();
-        // stroke(255,0,255);
 
-                    color from = color(204, 102, 0);
-            color to = color(0, 102, 153);
+        color blue = color(0, 255, 0);
+        color yellow = color(255, 0, 255);
+
+        int size = 1;
+        
+        fill(150,50,50,100);
 
         for(int i=0; i<value.length(); i++) {
-
-
-            color l = lerpColor(from, to, depth / 10.0);
-
-            fill(l);
             char c = value.charAt(i);
-            float len = height / (depth + 1);
+            float len = height / (n + 1);
+
+            noStroke();
+
+            if(c == 'a' || c == 'A'){
+                color k = lerpColor(blue, yellow, size / 10.0);
+                fill(k);
+                circle(0,0,40);
+            }
+
+            if(c == '+'){
+                // rotate(-PI/6 * random.nextInt(12)); 
+                rotate(-PI / 6);
+            }
+            if(c == 'm'){
+                strokeWeight(1);
+                stroke(100,100,100);
+                line(0,0,0,300 / size);
+                translate(0, 300 / size);
+            }
+
+            if(c == 'R'){
+                size--;
+            }
 
             if(c == 'E'){
-                circle(0,0,len);
+                size++;
             }
 
-            if(c == 'M'){
-                translate(100 + (200 / depth),0);
-            }
-
-            if(c == '-'){
-                rotate(-PI/3);
-            }
-            if(c == '+'){
-                rotate(-PI / 3);
-            }
-
-
-
-            if(c == '['){pushMatrix(); depth += 1;}
-            if(c == ']'){popMatrix(); depth -= 1;}
+            if(c == '['){pushMatrix(); size++;}
+            if(c == ']'){popMatrix(); size--;}
         }
+    }
+
+
+    void prep(){
+        this.add("A -> a[mA] [mA]");
+        this.add("A -> a[mA] [+mA]");
+        this.add("A -> a[mA] [++mA]");
+        this.add("A -> a[mA] [+++mA]");
+        this.add("A -> a[mA] [++++mA]");
+        this.add("A -> a[mA] [+++++mA]");
+        this.add("A -> a[mA] [++++++mA]");
+        this.add("A -> a[mA] [+++++++mA]");
+        this.add("A -> a[mA] [++++++++mA]");
+        this.add("A -> a[mA] [+++++++++mA]");
+        this.add("A -> a[mA] [++++++++++mA]");
+        this.add("A -> a[mA] [+++++++++++mA]");
+        this.add("A -> a[+mA] [mA]");
+        this.add("A -> a[+mA] [+mA]");
+        this.add("A -> a[+mA] [++mA]");
+        this.add("A -> a[+mA] [+++mA]");
+        this.add("A -> a[+mA] [++++mA]");
+        this.add("A -> a[+mA] [+++++mA]");
+        this.add("A -> a[+mA] [++++++mA]");
+        this.add("A -> a[+mA] [+++++++mA]");
+        this.add("A -> a[+mA] [++++++++mA]");
+        this.add("A -> a[+mA] [+++++++++mA]");
+        this.add("A -> a[+mA] [++++++++++mA]");
+        this.add("A -> a[+mA] [+++++++++++mA]");
+        this.add("A -> a[++mA] [mA]");
+        this.add("A -> a[++mA] [+mA]");
+        this.add("A -> a[++mA] [++mA]");
+        this.add("A -> a[++mA] [+++mA]");
+        this.add("A -> a[++mA] [++++mA]");
+        this.add("A -> a[++mA] [+++++mA]");
+        this.add("A -> a[++mA] [++++++mA]");
+        this.add("A -> a[++mA] [+++++++mA]");
+        this.add("A -> a[++mA] [++++++++mA]");
+        this.add("A -> a[++mA] [+++++++++mA]");
+        this.add("A -> a[++mA] [++++++++++mA]");
+        this.add("A -> a[++mA] [+++++++++++mA]");
+        this.add("A -> a[+++mA] [mA]");
+        this.add("A -> a[+++mA] [+mA]");
+        this.add("A -> a[+++mA] [++mA]");
+        this.add("A -> a[+++mA] [+++mA]");
+        this.add("A -> a[+++mA] [++++mA]");
+        this.add("A -> a[+++mA] [+++++mA]");
+        this.add("A -> a[+++mA] [++++++mA]");
+        this.add("A -> a[+++mA] [+++++++mA]");
+        this.add("A -> a[+++mA] [++++++++mA]");
+        this.add("A -> a[+++mA] [+++++++++mA]");
+        this.add("A -> a[+++mA] [++++++++++mA]");
+        this.add("A -> a[+++mA] [+++++++++++mA]");
+        this.add("A -> a[++++mA] [mA]");
+        this.add("A -> a[++++mA] [+mA]");
+        this.add("A -> a[++++mA] [++mA]");
+        this.add("A -> a[++++mA] [+++mA]");
+        this.add("A -> a[++++mA] [++++mA]");
+        this.add("A -> a[++++mA] [+++++mA]");
+        this.add("A -> a[++++mA] [++++++mA]");
+        this.add("A -> a[++++mA] [+++++++mA]");
+        this.add("A -> a[++++mA] [++++++++mA]");
+        this.add("A -> a[++++mA] [+++++++++mA]");
+        this.add("A -> a[++++mA] [++++++++++mA]");
+        this.add("A -> a[++++mA] [+++++++++++mA]");
+        this.add("A -> a[+++++mA] [mA]");
+        this.add("A -> a[+++++mA] [+mA]");
+        this.add("A -> a[+++++mA] [++mA]");
+        this.add("A -> a[+++++mA] [+++mA]");
+        this.add("A -> a[+++++mA] [++++mA]");
+        this.add("A -> a[+++++mA] [+++++mA]");
+        this.add("A -> a[+++++mA] [++++++mA]");
+        this.add("A -> a[+++++mA] [+++++++mA]");
+        this.add("A -> a[+++++mA] [++++++++mA]");
+        this.add("A -> a[+++++mA] [+++++++++mA]");
+        this.add("A -> a[+++++mA] [++++++++++mA]");
+        this.add("A -> a[+++++mA] [+++++++++++mA]");
+        this.add("A -> a[++++++mA] [mA]");
+        this.add("A -> a[++++++mA] [+mA]");
+        this.add("A -> a[++++++mA] [++mA]");
+        this.add("A -> a[++++++mA] [+++mA]");
+        this.add("A -> a[++++++mA] [++++mA]");
+        this.add("A -> a[++++++mA] [+++++mA]");
+        this.add("A -> a[++++++mA] [++++++mA]");
+        this.add("A -> a[++++++mA] [+++++++mA]");
+        this.add("A -> a[++++++mA] [++++++++mA]");
+        this.add("A -> a[++++++mA] [+++++++++mA]");
+        this.add("A -> a[++++++mA] [++++++++++mA]");
+        this.add("A -> a[++++++mA] [+++++++++++mA]");
+        this.add("A -> a[+++++++mA] [mA]");
+        this.add("A -> a[+++++++mA] [+mA]");
+        this.add("A -> a[+++++++mA] [++mA]");
+        this.add("A -> a[+++++++mA] [+++mA]");
+        this.add("A -> a[+++++++mA] [++++mA]");
+        this.add("A -> a[+++++++mA] [+++++mA]");
+        this.add("A -> a[+++++++mA] [++++++mA]");
+        this.add("A -> a[+++++++mA] [+++++++mA]");
+        this.add("A -> a[+++++++mA] [++++++++mA]");
+        this.add("A -> a[+++++++mA] [+++++++++mA]");
+        this.add("A -> a[+++++++mA] [++++++++++mA]");
+        this.add("A -> a[+++++++mA] [+++++++++++mA]");
+        this.add("A -> a[++++++++mA] [mA]");
+        this.add("A -> a[++++++++mA] [+mA]");
+        this.add("A -> a[++++++++mA] [++mA]");
+        this.add("A -> a[++++++++mA] [+++mA]");
+        this.add("A -> a[++++++++mA] [++++mA]");
+        this.add("A -> a[++++++++mA] [+++++mA]");
+        this.add("A -> a[++++++++mA] [++++++mA]");
+        this.add("A -> a[++++++++mA] [+++++++mA]");
+        this.add("A -> a[++++++++mA] [++++++++mA]");
+        this.add("A -> a[++++++++mA] [+++++++++mA]");
+        this.add("A -> a[++++++++mA] [++++++++++mA]");
+        this.add("A -> a[++++++++mA] [+++++++++++mA]");
+        this.add("A -> a[+++++++++mA] [mA]");
+        this.add("A -> a[+++++++++mA] [+mA]");
+        this.add("A -> a[+++++++++mA] [++mA]");
+        this.add("A -> a[+++++++++mA] [+++mA]");
+        this.add("A -> a[+++++++++mA] [++++mA]");
+        this.add("A -> a[+++++++++mA] [+++++mA]");
+        this.add("A -> a[+++++++++mA] [++++++mA]");
+        this.add("A -> a[+++++++++mA] [+++++++mA]");
+        this.add("A -> a[+++++++++mA] [++++++++mA]");
+        this.add("A -> a[+++++++++mA] [+++++++++mA]");
+        this.add("A -> a[+++++++++mA] [++++++++++mA]");
+        this.add("A -> a[+++++++++mA] [+++++++++++mA]");
+        this.add("A -> a[++++++++++mA] [mA]");
+        this.add("A -> a[++++++++++mA] [+mA]");
+        this.add("A -> a[++++++++++mA] [++mA]");
+        this.add("A -> a[++++++++++mA] [+++mA]");
+        this.add("A -> a[++++++++++mA] [++++mA]");
+        this.add("A -> a[++++++++++mA] [+++++mA]");
+        this.add("A -> a[++++++++++mA] [++++++mA]");
+        this.add("A -> a[++++++++++mA] [+++++++mA]");
+        this.add("A -> a[++++++++++mA] [++++++++mA]");
+        this.add("A -> a[++++++++++mA] [+++++++++mA]");
+        this.add("A -> a[++++++++++mA] [++++++++++mA]");
+        this.add("A -> a[++++++++++mA] [+++++++++++mA]");
+        this.add("A -> a[+++++++++++mA] [mA]");
+        this.add("A -> a[+++++++++++mA] [+mA]");
+        this.add("A -> a[+++++++++++mA] [++mA]");
+        this.add("A -> a[+++++++++++mA] [+++mA]");
+        this.add("A -> a[+++++++++++mA] [++++mA]");
+        this.add("A -> a[+++++++++++mA] [+++++mA]");
+        this.add("A -> a[+++++++++++mA] [++++++mA]");
+        this.add("A -> a[+++++++++++mA] [+++++++mA]");
+        this.add("A -> a[+++++++++++mA] [++++++++mA]");
+        this.add("A -> a[+++++++++++mA] [+++++++++mA]");
+        this.add("A -> a[+++++++++++mA] [++++++++++mA]");
+        this.add("A -> a[+++++++++++mA] [+++++++++++mA]");
     }
 
 }
