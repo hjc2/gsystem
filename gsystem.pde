@@ -6,9 +6,9 @@ Snowflake snowflake = new Snowflake();
 Square square = new Square();
 Die die = new Die();
 
-Cpu cpu = new Cpu(); 
+Explosion exp = new Explosion();
+System current = exp;
 
-System current = cpu;
 
 int k = 1;
 
@@ -42,7 +42,7 @@ void keyPressed(){
     // k++; // Increment the counter
   }
 
-  if(keyCode == DOWN) {
+  if(keyCode == DOWN && current.n > 0) {
     current.back();
     println(current.value);
   }
