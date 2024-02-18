@@ -35,7 +35,7 @@ void keyPressed(){
   if(keyCode == UP) {
 
     current.update();
-    println(current.value);
+    // println(current.value);
 
     // String filename = "image" + k + ".jpg";
     // save(filename);
@@ -44,7 +44,7 @@ void keyPressed(){
 
   if(keyCode == DOWN && current.n > 0) {
     current.back();
-    println(current.value);
+    // println(current.value);
   }
 
   if(keyCode == 'k' || keyCode == 'K'){

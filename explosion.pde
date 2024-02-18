@@ -21,12 +21,14 @@ class Explosion extends System {
 
         noStroke();
 
-        color blue = color(0, 255, 0);
-        color yellow = color(255, 0, 255);
+        // color blue = color(255, 255, 0, 60);
+        // color yellow = color(255, 0, 255, 60);
+                // color k = lerpColor(blue, yellow, size / 23.0);
+                // fill(k);
 
         int size = 1;
         
-        fill(150,50,50,100);
+        fill(50,50,50,100);
 
         for(int i=0; i<value.length(); i++) {
             char c = value.charAt(i);
@@ -35,9 +37,8 @@ class Explosion extends System {
             noStroke();
 
             if(c == 'a' || c == 'A'){
-                color k = lerpColor(blue, yellow, size / 10.0);
-                fill(k);
-                circle(0,0,40);
+
+                circle(0,0, 200 / (size + 1));
             }
 
             if(c == '+'){
@@ -46,8 +47,8 @@ class Explosion extends System {
             }
             if(c == 'm'){
                 strokeWeight(1);
-                stroke(100,100,100);
-                line(0,0,0,300 / size);
+                stroke(40,40,40);
+                // line(0,0,0,300 / size);
                 translate(0, 300 / size);
             }
 
