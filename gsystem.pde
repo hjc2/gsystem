@@ -6,7 +6,7 @@ Snowflake snowflake = new Snowflake();
 Square square = new Square();
 Die die = new Die();
 
-System current = square;
+System current = die;
 
 void setup() {
 

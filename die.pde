@@ -18,22 +18,23 @@ class Die extends System {
         this.add("U -> [U r U d U l U]");
         this.add("U -> [U r U d U l U]");
 
-        this.add("U -> KUS");
+        this.add("U -> [xxyyzzqq]");
 
         this.add("r -> rr");
         this.add("d -> dd");
         this.add("l -> ll");
+
+        this.add("x -> xx");
+        this.add("y -> yy");
+        this.add("z -> zz");
+        this.add("q -> qq");
         // this.add("k -> kk");
     }
 
     public void draw(){
 
         noFill();
-        // fill(100);
-        // strokeWeight(3);
         rectMode(CORNER);
-        // translate(width / 2, height / 2);
-
         float lenMod = 1;
 
         for(int i=0; i<value.length(); i++) {
@@ -53,13 +54,21 @@ class Die extends System {
             if(c == '['){pushMatrix();}
             if(c == ']'){popMatrix();}
 
-            if(c == 'K'){
-                lenMod = lenMod * 2;
-                rect(0,0,len * lenMod,len * lenMod);
-
+            if(c == 'x'){
+                line(0,0,len,0);
+                translate(len,0);
             }
-            if(c == 'S'){
-                lenMod = lenMod / 2;
+            if(c == 'y'){
+                line(0,0,0,len);
+                translate(0,len);
+            }
+            if(c == 'z'){
+                line(0,0,-len,0);
+                translate(-len,0);
+            }
+            if(c == 'q'){
+                line(0,0,0,-len);
+                translate(0,-len);
             }
         }
 
@@ -68,3 +77,5 @@ class Die extends System {
 
 
 }
+
+// [[[UrUdUlU]rr[UrUdUlU]dd[UrUdUlU]ll[UrUdUlU]]rrrr[[UrUdUlU]rr[UrUdUlU]dd[UrUdUlU]ll[xyzq]]dddd[[xyzq]rr[UrUdUlU]dd[UrUdUlU]ll[UrUdUlU]]llll[xxyyzzqq]]
