@@ -23,8 +23,9 @@ class Square extends System {
     public void draw(){
 
         noFill();
-        // fill(100);
-        // strokeWeight(3);
+        stroke(255);
+        strokeWeight(1);
+
         rectMode(CORNER);
 
         float lenMod = 1;

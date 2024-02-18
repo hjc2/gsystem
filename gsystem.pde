@@ -1,7 +1,7 @@
 
 
-Koch s = new Koch();
-Snowflake snow = new Snowflake();
+Koch koch = new Koch();
+Snowflake snowflake = new Snowflake();
 
 Square square = new Square();
 Die die = new Die();
@@ -28,13 +28,18 @@ void draw(){
 
 void keyPressed(){
 
-    if(keyCode == UP) {
+  if(keyCode == UP) {
 
-      current.update();
-      println(current.value);
-    }
+    current.update();
+    println(current.value);
+  }
 
-    if(keyCode == DOWN) {
-      current.back();
-    }
+  if(keyCode == DOWN) {
+    current.back();
+    println(current.value);
+  }
+
+  if(keyCode == 'k' || keyCode == 'K'){
+    current = koch;
+  }
 }
