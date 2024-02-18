@@ -10,7 +10,8 @@ class Explosion extends System {
     Explosion(){
         super("E");
 
-        this.add("E -> E[-E]");
+        this.add("E -> [+E][+E][+E]");
+        
         this.add("E -> E[+E+E]");
         this.add("E -> E");
     }
@@ -38,7 +39,8 @@ class Explosion extends System {
                 translate(0,80);
             }
             if(c == '+'){
-                rotate(PI/6);
+                int v = random.nextInt(20);
+                rotate(2 * PI / v);
                 translate(0,80);
             }
 
