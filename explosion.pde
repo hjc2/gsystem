@@ -10,10 +10,10 @@ class Explosion extends System {
     Explosion(){
         super("E");
 
-        this.add("E -> [+E][+E][+E]");
-        
-        this.add("E -> E[+E+E]");
-        this.add("E -> E");
+        this.add("E -> E[+[ME]+[ME]+[ME]]");
+        this.add("E -> E[++[ME]+++[ME]++++[ME]]");
+        this.add("E -> E[+++++[ME]++[ME]+[ME]]");
+
     }
 
     public void draw(){
@@ -22,27 +22,35 @@ class Explosion extends System {
 
         noStroke();
         // stroke(255,0,255);
-        fill(255,0,255,50);
 
+                    color from = color(204, 102, 0);
+            color to = color(0, 102, 153);
 
         for(int i=0; i<value.length(); i++) {
 
+
+            color l = lerpColor(from, to, depth / 10.0);
+
+            fill(l);
             char c = value.charAt(i);
-            float len = height / pow(2,depth);
+            float len = height / (depth + 1);
 
             if(c == 'E'){
                 circle(0,0,len);
             }
 
+            if(c == 'M'){
+                translate(100 + (200 / depth),0);
+            }
+
             if(c == '-'){
-                rotate(-PI/6);
-                translate(0,80);
+                rotate(-PI/3);
             }
             if(c == '+'){
-                int v = random.nextInt(20);
-                rotate(2 * PI / v);
-                translate(0,80);
+                rotate(-PI / 3);
             }
+
+
 
             if(c == '['){pushMatrix(); depth += 1;}
             if(c == ']'){popMatrix(); depth -= 1;}
