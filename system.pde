@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Stack;
 import java.util.Random;
 
-class System {
+abstract class System {
 
     public String axiom;
     public String value;
@@ -64,4 +64,6 @@ class System {
             n--;
         }
     }
+
+    public abstract void draw();
 }

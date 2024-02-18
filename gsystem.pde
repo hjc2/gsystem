@@ -2,7 +2,11 @@
 
 Koch s = new Koch();
 Snowflake snow = new Snowflake();
+
+Square square = new Square();
 Die die = new Die();
+
+System current = square;
 
 void setup() {
 
@@ -17,13 +21,7 @@ void draw(){
 
   background(0);
 
-  die.draw();
-
-  // translate(300,400);
-  // // scale(0.5);
-  // rect(0,0,400,400);
-  // stroke(255,0,0);
-  // line(0,0,-200,200);
+  current.draw();
 }
 
 
@@ -32,14 +30,11 @@ void keyPressed(){
 
     if(keyCode == UP) {
 
-      die.update();
-      println(die.value);
-
+      current.update();
+      println(current.value);
     }
 
     if(keyCode == DOWN) {
-
-      die.back();
-
+      current.back();
     }
 }
