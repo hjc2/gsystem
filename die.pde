@@ -18,13 +18,16 @@ class Die extends System {
         this.add("U -> [U r U d U l U]");
         this.add("U -> [U r U d U l U]");
 
+        // has to go to double, or else they will be insufficiently small
+        // could also double the length of the drawing.
         this.add("U -> [xxyyzzqq]");
 
         this.add("r -> rr");
         this.add("d -> dd");
         this.add("l -> ll");
 
-        this.add("x -> xx");
+        // this doubling preserves the size of the squares as the len divides every time.
+        this.add("x -> xx"); 
         this.add("y -> yy");
         this.add("z -> zz");
         this.add("q -> qq");
@@ -35,7 +38,6 @@ class Die extends System {
 
         noFill();
         rectMode(CORNER);
-        float lenMod = 1;
 
         for(int i=0; i<value.length(); i++) {
             

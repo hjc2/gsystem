@@ -28,8 +28,6 @@ class Square extends System {
 
         rectMode(CORNER);
 
-        float lenMod = 1;
-
         for(int i=0; i<value.length(); i++) {
             
             char c = value.charAt(i);
