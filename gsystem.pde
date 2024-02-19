@@ -7,7 +7,9 @@ Square square = new Square();
 Die die = new Die();
 
 Explosion exp = new Explosion();
-System current = exp;
+
+Dynamics dynamics = new Dynamics();
+System current = dynamics;
 
 
 int k = 1;
@@ -17,6 +19,9 @@ void setup() {
   size(800, 800);
 
   stroke(255);
+
+
+
 
 }
 
@@ -35,7 +40,7 @@ void keyPressed(){
   if(keyCode == UP) {
 
     current.update();
-    // println(current.value);
+    println(current.value);
 
     // String filename = "image" + k + ".jpg";
     // save(filename);
@@ -44,7 +49,7 @@ void keyPressed(){
 
   if(keyCode == DOWN && current.n > 0) {
     current.back();
-    // println(current.value);
+    println(current.value);
   }
 
   if(keyCode == 'k' || keyCode == 'K'){

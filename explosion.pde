@@ -13,8 +13,6 @@ class Explosion extends System {
         prep();        
     }
 
-
-
     public void draw(){
 
         translate(width/2,height / 2);
@@ -40,14 +38,12 @@ class Explosion extends System {
             noStroke();
 
             if(c == 'a' || c == 'A'){
-                
-                color cv = lerpColor(grey, orange, size / 18.0);
-                fill(cv);
+                // color cv = lerpColor(grey, orange, size / 18.0);
+                fill(255 * float(size) / float(n) - random.nextInt(40),165 *float(size) / float(n),0 + n * 5,float(size) / float(n) * 255);
                 circle(0,0, 200 / ((size + 3) / 2) );
             }
 
             if(c == '+'){
-                // rotate(-PI/6 * random.nextInt(12)); 
                 rotate(-PI / 6);
             }
             if(c == 'm'){
@@ -60,7 +56,7 @@ class Explosion extends System {
             if(c == 'R'){
                 size--;
             }
-
+    
             if(c == 'E'){
                 size++;
             }
