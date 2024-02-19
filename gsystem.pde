@@ -9,7 +9,7 @@ Die die = new Die();
 Explosion exp = new Explosion();
 
 Dynamics dynamics = new Dynamics();
-System current = dynamics;
+System current = exp;
 
 
 int k = 1;
@@ -20,9 +20,6 @@ void setup() {
 
   stroke(255);
 
-
-
-
 }
 
 
@@ -32,6 +29,7 @@ void draw(){
 
   current.draw();
 }
+
 
 
 
@@ -54,5 +52,9 @@ void keyPressed(){
 
   if(keyCode == 'k' || keyCode == 'K'){
     current = koch;
+  }
+
+  if(keyCode == 'i' || keyCode == 'I'){
+    println(current.value);
   }
 }
