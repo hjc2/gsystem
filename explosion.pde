@@ -27,8 +27,11 @@ class Explosion extends System {
                 // fill(k);
 
         int size = 1;
-        
-        fill(50,50,50,100);
+                
+        fill(90,90,90,20);
+
+        color grey = color(40,40,40,0);
+        color orange = color(255,165,0, 150);
 
         for(int i=0; i<value.length(); i++) {
             char c = value.charAt(i);
@@ -37,8 +40,10 @@ class Explosion extends System {
             noStroke();
 
             if(c == 'a' || c == 'A'){
-
-                circle(0,0, 200 / (size + 1));
+                
+                color cv = lerpColor(grey, orange, size / 18.0);
+                fill(cv);
+                circle(0,0, 200 / ((size + 3) / 2) );
             }
 
             if(c == '+'){
